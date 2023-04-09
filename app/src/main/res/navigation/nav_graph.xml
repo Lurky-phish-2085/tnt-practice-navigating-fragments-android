@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainMenuFragment">
+
+    <fragment
+        android:id="@+id/mainMenuFragment"
+        android:name="xyz.lurkyphish2085.navfragmentstest.MainMenuFragment"
+        android:label="MainMenuFragment"
+        tools:layout="@layout/fragment_main_menu">
+        <action
+            android:id="@+id/action_mainMenuFragment_to_destinationAFragment"
+            app:destination="@id/destinationAFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_mainMenuFragment_to_destinationBFragment"
+            app:destination="@id/destinationBFragment" />
+        <action
+            android:id="@+id/action_mainMenuFragment_to_destinationCFragment"
+            app:destination="@id/destinationCFragment" />
+        <argument
+            android:name="receivedData"
+            app:argType="string"
+            android:defaultValue="Default Text" />
+    </fragment>
+    <fragment
+        android:id="@+id/destinationAFragment"
+        android:name="xyz.lurkyphish2085.navfragmentstest.DestinationAFragment"
+        android:label="DestinationAFragment"
+        tools:layout="@layout/fragment_a">
+        <action
+            android:id="@+id/action_destinationAFragment_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment"
+            app:enterAnim="@android:anim/fade_out"
+            app:exitAnim="@android:anim/fade_out"
+            app:launchSingleTop="false"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/destinationBFragment"
+        android:name="xyz.lurkyphish2085.navfragmentstest.DestinationBFragment"
+        android:label="DestinationBFragment"
+        tools:layout="@layout/fragment_b">
+        <action
+            android:id="@+id/action_destinationBFragment_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/destinationCFragment"
+        android:name="xyz.lurkyphish2085.navfragmentstest.DestinationCFragment"
+        android:label="DestinationCFragment"
+        tools:layout="@layout/fragment_c">
+        <action
+            android:id="@+id/action_destinationCFragment_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment" />
+    </fragment>
+</navigation>
